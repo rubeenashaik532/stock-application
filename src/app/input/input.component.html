@@ -1,0 +1,55 @@
+<div>
+
+    <span><input #stockName id=box placeholder="Search stock you want to predict"/>
+  
+    <button id=button (click)="this.getStock(stockName.value) ; stockName.value=''"> Search </button>
+  
+  </span>
+  
+  
+  
+  </div>
+  
+  <br><br><br>
+  
+  <table border="2px">
+  
+  <tr *ngIf="this.presentStock !==undefined">
+  
+    <td id=alerttext>{{this.presentStock.name}}</td>
+  
+    </tr><td>{{this.presentStock.symbol}}</td>
+  
+  
+  
+    <td *ngFor="let this.presentStock.prices">{{v}}</td>
+  
+    <tr><td>{{this.presentStock.searchTime}}</td></tr>
+  
+  
+  
+    </table><br><br>
+  
+    <p><strong>previous Stocks</strong></p>
+  
+    <table border="2px" (click)="this.getStock(previousstock.name) ; stockName.value=''">
+  
+      <tr *ngFor="let previousstock of this.previousStocks">
+  
+        <td id=alerttext>{{previousstock.name}}</td>
+  
+       <td>{{previousstock.symbol}}</td>
+  
+  
+  
+        <td *ngFor="let previousstock.prices">{{v}}</td>
+  
+      <td>{{previousstock.searchTime}}</td>
+  
+      <td (click)="this.getStock(previousstock.name) ; ">click here<td>
+  
+  
+  
+  
+  
+      </table>
